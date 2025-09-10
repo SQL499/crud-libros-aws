@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "a37b0cb8-9d3d-4022-b6c8-a7b79483e1e7",
+		"name": "LibrosAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43909424",
+		"_collection_link": "https://jhon-9669507.postman.co/workspace/Jhon's-Workspace~c6c307b9-d744-4859-8e1f-906405cf927d/collection/43909424-a37b0cb8-9d3d-4022-b6c8-a7b79483e1e7?action=share&source=collection_link&creator=43909424"
+	},
+	"item": [
+		{
+			"name": "Cognito Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AGREGAR_SECRET_CLIENT",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AGREGAR_CLIENT_ID",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "8aece619-6389-49b8-84fb-9d75e8c31215",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "CALLBACK_URL",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://us-east-22vt82tusp.auth.us-east-2.amazoncognito.com/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"us-east-22vt82tusp",
+						"auth",
+						"us-east-2",
+						"amazoncognito",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRUD-Libros-Subir libro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJrY201K3N4cjFPZWpGVkpzQmhockMyMHNSdFZqeTdjQ21Ja2phbzFGT3JjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl8yVnQ4MnR1c3AiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiIzMWgyNzlmbmE0c2ozYzU1ZmNpZ2xkMTh1biIsIm9yaWdpbl9qdGkiOiI3NWYyZDcyMS1lZjI5LTQwOGUtYjBiZi01M2VhNTdjMDFkMzkiLCJldmVudF9pZCI6IjhjNGFmMjQ5LWIzYTctNGU4ZC1hMzNjLWUyYTM2MGE5MjdjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiaHR0cHM6XC9cL2FwaS5saWJyb3NcL3dyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIGh0dHBzOlwvXC9hcGkubGlicm9zXC9yZWFkIiwiYXV0aF90aW1lIjoxNzU3NTM4MjgxLCJleHAiOjE3NTc2MjQ2ODEsImlhdCI6MTc1NzUzODI4MSwianRpIjoiYzI5MjQ3ODItZjlmMC00MzU1LWI4MmMtODc3M2M1YmI5MmU2IiwidXNlcm5hbWUiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUifQ.QJIfR7o1SpqZMjA9W6_aGBiqjEHLkiyUsmPohvZQ8x3efdR2OxVBtEzajvnTatec_j4ugeHG691kej39zDcJgyc4mTLx8tIr9UpOrVFwVymzaSn8MQ0Y8Ooa_2C4345Ysfr7DllXiqmxokk6bNG8wWZ0H_OtHvAJ_8MqaFIqDWlaAo_qZAs4fSZ5KclzobPNEA8PkNKSsf-l2nrh-NQnQmvhZwWPSrwqbBYexpbmIaMzz28BUR1T8eUuY6O3vizmF39hYUco3OYtoiatNq9y0WM2aUBFCrkEt5L5cpSeMi8nGdF2sfXVqev-AQrL2VJv9mBbX3xoDuOdbset0BKo8Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"7\",\r\n  \"titulo\": \"Harry Potter 7\",\r\n  \"autor\": \"Autor 7\",\r\n  \"precio\": 120,\r\n  \"anio\": 2000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://16dr2y0ha3.execute-api.us-east-2.amazonaws.com/dev/items",
+					"protocol": "https",
+					"host": [
+						"16dr2y0ha3",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRUD-Libros-Listar Libros",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJrY201K3N4cjFPZWpGVkpzQmhockMyMHNSdFZqeTdjQ21Ja2phbzFGT3JjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl8yVnQ4MnR1c3AiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiIzMWgyNzlmbmE0c2ozYzU1ZmNpZ2xkMTh1biIsIm9yaWdpbl9qdGkiOiI3NWYyZDcyMS1lZjI5LTQwOGUtYjBiZi01M2VhNTdjMDFkMzkiLCJldmVudF9pZCI6IjhjNGFmMjQ5LWIzYTctNGU4ZC1hMzNjLWUyYTM2MGE5MjdjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiaHR0cHM6XC9cL2FwaS5saWJyb3NcL3dyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIGh0dHBzOlwvXC9hcGkubGlicm9zXC9yZWFkIiwiYXV0aF90aW1lIjoxNzU3NTM4MjgxLCJleHAiOjE3NTc2MjQ2ODEsImlhdCI6MTc1NzUzODI4MSwianRpIjoiYzI5MjQ3ODItZjlmMC00MzU1LWI4MmMtODc3M2M1YmI5MmU2IiwidXNlcm5hbWUiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUifQ.QJIfR7o1SpqZMjA9W6_aGBiqjEHLkiyUsmPohvZQ8x3efdR2OxVBtEzajvnTatec_j4ugeHG691kej39zDcJgyc4mTLx8tIr9UpOrVFwVymzaSn8MQ0Y8Ooa_2C4345Ysfr7DllXiqmxokk6bNG8wWZ0H_OtHvAJ_8MqaFIqDWlaAo_qZAs4fSZ5KclzobPNEA8PkNKSsf-l2nrh-NQnQmvhZwWPSrwqbBYexpbmIaMzz28BUR1T8eUuY6O3vizmF39hYUco3OYtoiatNq9y0WM2aUBFCrkEt5L5cpSeMi8nGdF2sfXVqev-AQrL2VJv9mBbX3xoDuOdbset0BKo8Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://16dr2y0ha3.execute-api.us-east-2.amazonaws.com/dev/items",
+					"protocol": "https",
+					"host": [
+						"16dr2y0ha3",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRUD-Libros-Listar Libros PRUEBA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJrY201K3N4cjFPZWpGVkpzQmhockMyMHNSdFZqeTdjQ21Ja2phbzFGT3JjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl8yVnQ4MnR1c3AiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiIzMWgyNzlmbmE0c2ozYzU1ZmNpZ2xkMTh1biIsIm9yaWdpbl9qdGkiOiI3NWYyZDcyMS1lZjI5LTQwOGUtYjBiZi01M2VhNTdjMDFkMzkiLCJldmVudF9pZCI6IjhjNGFmMjQ5LWIzYTctNGU4ZC1hMzNjLWUyYTM2MGE5MjdjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiaHR0cHM6XC9cL2FwaS5saWJyb3NcL3dyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIGh0dHBzOlwvXC9hcGkubGlicm9zXC9yZWFkIiwiYXV0aF90aW1lIjoxNzU3NTM4MjgxLCJleHAiOjE3NTc2MjQ2ODEsImlhdCI6MTc1NzUzODI4MSwianRpIjoiYzI5MjQ3ODItZjlmMC00MzU1LWI4MmMtODc3M2M1YmI5MmU2IiwidXNlcm5hbWUiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUifQ.QJIfR7o1SpqZMjA9W6_aGBiqjEHLkiyUsmPohvZQ8x3efdR2OxVBtEzajvnTatec_j4ugeHG691kej39zDcJgyc4mTLx8tIr9UpOrVFwVymzaSn8MQ0Y8Ooa_2C4345Ysfr7DllXiqmxokk6bNG8wWZ0H_OtHvAJ_8MqaFIqDWlaAo_qZAs4fSZ5KclzobPNEA8PkNKSsf-l2nrh-NQnQmvhZwWPSrwqbBYexpbmIaMzz28BUR1T8eUuY6O3vizmF39hYUco3OYtoiatNq9y0WM2aUBFCrkEt5L5cpSeMi8nGdF2sfXVqev-AQrL2VJv9mBbX3xoDuOdbset0BKo8Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://16dr2y0ha3.execute-api.us-east-2.amazonaws.com/dev/items",
+					"protocol": "https",
+					"host": [
+						"16dr2y0ha3",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRUD-Libros-Obtener Libro",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJrY201K3N4cjFPZWpGVkpzQmhockMyMHNSdFZqeTdjQ21Ja2phbzFGT3JjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl8yVnQ4MnR1c3AiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiIzMWgyNzlmbmE0c2ozYzU1ZmNpZ2xkMTh1biIsIm9yaWdpbl9qdGkiOiI3NWYyZDcyMS1lZjI5LTQwOGUtYjBiZi01M2VhNTdjMDFkMzkiLCJldmVudF9pZCI6IjhjNGFmMjQ5LWIzYTctNGU4ZC1hMzNjLWUyYTM2MGE5MjdjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiaHR0cHM6XC9cL2FwaS5saWJyb3NcL3dyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIGh0dHBzOlwvXC9hcGkubGlicm9zXC9yZWFkIiwiYXV0aF90aW1lIjoxNzU3NTM4MjgxLCJleHAiOjE3NTc2MjQ2ODEsImlhdCI6MTc1NzUzODI4MSwianRpIjoiYzI5MjQ3ODItZjlmMC00MzU1LWI4MmMtODc3M2M1YmI5MmU2IiwidXNlcm5hbWUiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUifQ.QJIfR7o1SpqZMjA9W6_aGBiqjEHLkiyUsmPohvZQ8x3efdR2OxVBtEzajvnTatec_j4ugeHG691kej39zDcJgyc4mTLx8tIr9UpOrVFwVymzaSn8MQ0Y8Ooa_2C4345Ysfr7DllXiqmxokk6bNG8wWZ0H_OtHvAJ_8MqaFIqDWlaAo_qZAs4fSZ5KclzobPNEA8PkNKSsf-l2nrh-NQnQmvhZwWPSrwqbBYexpbmIaMzz28BUR1T8eUuY6O3vizmF39hYUco3OYtoiatNq9y0WM2aUBFCrkEt5L5cpSeMi8nGdF2sfXVqev-AQrL2VJv9mBbX3xoDuOdbset0BKo8Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://16dr2y0ha3.execute-api.us-east-2.amazonaws.com/dev/items/3",
+					"protocol": "https",
+					"host": [
+						"16dr2y0ha3",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"items",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRUD-Libros-Actualizar Libro",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJrY201K3N4cjFPZWpGVkpzQmhockMyMHNSdFZqeTdjQ21Ja2phbzFGT3JjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl8yVnQ4MnR1c3AiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiIzMWgyNzlmbmE0c2ozYzU1ZmNpZ2xkMTh1biIsIm9yaWdpbl9qdGkiOiI3NWYyZDcyMS1lZjI5LTQwOGUtYjBiZi01M2VhNTdjMDFkMzkiLCJldmVudF9pZCI6IjhjNGFmMjQ5LWIzYTctNGU4ZC1hMzNjLWUyYTM2MGE5MjdjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiaHR0cHM6XC9cL2FwaS5saWJyb3NcL3dyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIGh0dHBzOlwvXC9hcGkubGlicm9zXC9yZWFkIiwiYXV0aF90aW1lIjoxNzU3NTM4MjgxLCJleHAiOjE3NTc2MjQ2ODEsImlhdCI6MTc1NzUzODI4MSwianRpIjoiYzI5MjQ3ODItZjlmMC00MzU1LWI4MmMtODc3M2M1YmI5MmU2IiwidXNlcm5hbWUiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUifQ.QJIfR7o1SpqZMjA9W6_aGBiqjEHLkiyUsmPohvZQ8x3efdR2OxVBtEzajvnTatec_j4ugeHG691kej39zDcJgyc4mTLx8tIr9UpOrVFwVymzaSn8MQ0Y8Ooa_2C4345Ysfr7DllXiqmxokk6bNG8wWZ0H_OtHvAJ_8MqaFIqDWlaAo_qZAs4fSZ5KclzobPNEA8PkNKSsf-l2nrh-NQnQmvhZwWPSrwqbBYexpbmIaMzz28BUR1T8eUuY6O3vizmF39hYUco3OYtoiatNq9y0WM2aUBFCrkEt5L5cpSeMi8nGdF2sfXVqev-AQrL2VJv9mBbX3xoDuOdbset0BKo8Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"1\",\r\n  \"titulo\": \"Clean Code (3nd Edition)\",\r\n  \"precio\": 60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://16dr2y0ha3.execute-api.us-east-2.amazonaws.com/dev/items",
+					"protocol": "https",
+					"host": [
+						"16dr2y0ha3",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRUD-Libros-Eliminar Libro",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJrY201K3N4cjFPZWpGVkpzQmhockMyMHNSdFZqeTdjQ21Ja2phbzFGT3JjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl8yVnQ4MnR1c3AiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiIzMWgyNzlmbmE0c2ozYzU1ZmNpZ2xkMTh1biIsIm9yaWdpbl9qdGkiOiI3NWYyZDcyMS1lZjI5LTQwOGUtYjBiZi01M2VhNTdjMDFkMzkiLCJldmVudF9pZCI6IjhjNGFmMjQ5LWIzYTctNGU4ZC1hMzNjLWUyYTM2MGE5MjdjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiaHR0cHM6XC9cL2FwaS5saWJyb3NcL3dyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIGh0dHBzOlwvXC9hcGkubGlicm9zXC9yZWFkIiwiYXV0aF90aW1lIjoxNzU3NTM4MjgxLCJleHAiOjE3NTc2MjQ2ODEsImlhdCI6MTc1NzUzODI4MSwianRpIjoiYzI5MjQ3ODItZjlmMC00MzU1LWI4MmMtODc3M2M1YmI5MmU2IiwidXNlcm5hbWUiOiIwMTBiMjUwMC03MDAxLTcwZGUtMzFmYy02MTQ4OWRhNTFhODUifQ.QJIfR7o1SpqZMjA9W6_aGBiqjEHLkiyUsmPohvZQ8x3efdR2OxVBtEzajvnTatec_j4ugeHG691kej39zDcJgyc4mTLx8tIr9UpOrVFwVymzaSn8MQ0Y8Ooa_2C4345Ysfr7DllXiqmxokk6bNG8wWZ0H_OtHvAJ_8MqaFIqDWlaAo_qZAs4fSZ5KclzobPNEA8PkNKSsf-l2nrh-NQnQmvhZwWPSrwqbBYexpbmIaMzz28BUR1T8eUuY6O3vizmF39hYUco3OYtoiatNq9y0WM2aUBFCrkEt5L5cpSeMi8nGdF2sfXVqev-AQrL2VJv9mBbX3xoDuOdbset0BKo8Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://16dr2y0ha3.execute-api.us-east-2.amazonaws.com/dev/items/7",
+					"protocol": "https",
+					"host": [
+						"16dr2y0ha3",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"items",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
